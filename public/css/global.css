@@ -1,0 +1,23 @@
+/* Faz width/height incluírem padding e borda (evita elementos "estourando" a largura) */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove as margens padrão do navegador */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Faz a página rolar suavemente ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Acessibilidade: respeita quem configurou o sistema para reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
