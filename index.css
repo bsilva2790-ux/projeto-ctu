@@ -121,7 +121,7 @@ summary:focus-visible {
 .hero {
     position: relative;
     /* 1ª imagem do banner (o script.js troca depois). Mantenha igual ao 1º item de 'imagens' no script.js */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/public/assets/images/img-header1.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/img-header1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
