@@ -4,8 +4,8 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 // --- CARROSSEL DO BANNER (HERO) ---
 // Array com os caminhos das imagens do Banner Hero
 const imagens = [
-    "public/assets/images/img-header1.jpg",
-    "public/assets/images/img-header2.jpg"
+    "assets/images/img-header1.jpg",
+    "assets/images/img-header2.jpg"
 ];
 
 const HERO_INTERVALO = 5000; // troca a cada 5 segundos
