@@ -4,8 +4,8 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 // --- CARROSSEL DO BANNER (HERO) ---
 // Array com os caminhos das imagens do Banner Hero
 const imagens = [
-    "public/assets/images/img-header1.jpg",
-    "public/assets/images/img-header2.jpg"
+    "/public/assets/images/img-header1.jpg",
+    "/public/assets/images/img-header2.jpg"
 ];
 
 const HERO_INTERVALO = 5000; // troca a cada 5 segundos
@@ -101,23 +101,27 @@ imagens.forEach((src) => {
 atualizarFundo();
 iniciarHero();
 
-// Envio do formulário para o WhatsApp
+// Formulário "Agende sua aula experimental": monta a mensagem e abre o WhatsApp
 const whatsappForm = document.getElementById('whatsappForm');
 if (whatsappForm) {
     whatsappForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Impede o envio padrão do formulário
 
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const mensagem = document.getElementById('mensagem').value;
+        const nome = document.getElementById('nome').value.trim();
+        const selectHorario = document.getElementById('horario');
+        const horario = selectHorario.options[selectHorario.selectedIndex].text;
+        const mensagem = document.getElementById('mensagem').value.trim();
 
         const telefone = "5511916560389";
 
-        const texto = `Olá! Meu nome é *${nome}*.\nMeu e-mail é: ${email}\n\nMensagem:\n${mensagem}`;
+        let texto = `Olá! Meu nome é *${nome}* e quero agendar uma aula experimental.\nMelhor horário: ${horario}.`;
+        if (mensagem) {
+            texto += `\n\nMensagem:\n${mensagem}`;
+        }
 
         const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
 
-        window.open(url, '_blank');
+        window.open(url, '_blank', 'noopener');
     });
 }
 
@@ -179,7 +183,7 @@ if (track) {
     function startSlideShow() {
         stopSlideShow();
         if (reduceMotion || isHovering || hasKeyboardFocus) return;
-        slideInterval = setInterval(nextSlide, 2500);
+        slideInterval = setInterval(nextSlide, 4000);
     }
 
     // Botões manuais: troca o slide e reinicia a contagem
